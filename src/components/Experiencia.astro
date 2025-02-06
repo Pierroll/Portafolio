@@ -1,0 +1,93 @@
+---
+// Definir la variable EXPERIENCE
+const EXPERIENCE = [
+  {
+    date: "Actualmente...",
+    title: "Creador de Contenido",
+    company: "Redes Sociales",
+    description:
+      "Comparto contenido educativo sobre programación y desarrollo web, centrado en tecnologías como JavaScript, Python, Laravel y bases de datos. Organizo transmisiones en vivo y creo recursos para enseñar desde lo básico hasta conceptos avanzados, ayudando a nuevos programadores a mejorar sus habilidades. Reconocido por mi enfoque colaborativo y educativo, fomentando el aprendizaje entre estudiantes y profesionales.",
+    link: "https://www.tiktok.com/@devmorris?is_from_webapp=1&sender_device=pc",
+  },
+  {
+    date: "2025",
+    title: "Estudiante de Ingeniería de Informática y Sistemas",
+    company: "UNAS",
+    description:
+      "Participación en proyectos académicos y colaborativos en programación, desarrollo de aplicaciones web y sistemas de gestión. Desarrollo de pequeños proyectos personales como parte de mi formación, incluyendo aplicaciones web con Laravel, bases de datos con MySQL, y la implementación de prácticas como integración continua. En constante aprendizaje y aplicación de nuevas tecnologías y herramientas en el ámbito del desarrollo de software, con un enfoque en mejorar mis habilidades a través de la práctica y el trabajo en equipo.",
+  },
+];
+---
+
+<section id="experiencia" class="text-white pt-44 p-12">
+  <!-- Contenedor principal con alineación de elementos -->
+  <div class="max-w-4xl mx-auto">
+    <h2
+      class="text-3xl font-bold mb-20 inline-flex items-center gap-2 whitespace-nowrap"
+    >
+      <img
+        src="/images/bag.png"
+        alt="Icono de código"
+        class="w-8 h-8 inline-block"
+      />
+      Experiencia Laboral
+    </h2>
+    <!-- Lista de experiencias -->
+    <ol class="relative">
+      <!-- Línea vertical continua -->
+      <div class="absolute left-[14px] top-0 h-full border-l-2 border-white/20">
+      </div>
+
+      {
+        EXPERIENCE.map((experience) => (
+          <li class="mb-12">
+            <div class="relative grid pl-12 md:grid-cols-5 md:gap-10">
+              <div class="relative pb-12 md:col-span-2">
+                <div class="sticky top-0">
+                  <span class="text-yellow-400 -left-[43px] absolute rounded-full text-5xl">
+                    &bull;
+                  </span>
+                  <h3 class="text-xl font-bold text-yellow-400">
+                    {experience.title}
+                  </h3>
+                  <h4 class="font-semibold text-xl text-gray-300">
+                    {experience.company}
+                  </h4>
+                  <time class="p-0 m-0 text-sm text-gray-400">
+                    {experience.date}
+                  </time>
+                </div>
+              </div>
+              <div class="relative flex flex-col gap-2 pb-4 text-justify text-gray-300 md:col-span-3">
+                <p>{experience.description}</p>
+                {experience.link && (
+                  <a
+                    href={experience.link}
+                    class="inline-flex items-center text-yellow-400 hover:text-yellow-500"
+                  >
+                    Saber más
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-5 icon icon-tabler icon-tabler-chevron-right"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M9 6l6 6l-6 6" />
+                    </svg>
+                  </a>
+                )}
+              </div>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

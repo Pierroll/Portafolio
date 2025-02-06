@@ -1,0 +1,93 @@
+---
+const navItems = [
+  { title: "Experiencia", label: "experiencia", url: "/#experiencia" },
+  { title: "Proyectos", label: "proyectos", url: "/#proyectos" },
+  { title: "Sobre mí", label: "sobre-mi", url: "/#sobre-mi" },
+  { title: "Contacto", label: "contacto", url: "mailto:devmorris@gmail.com" },
+];
+---
+
+<header class="w-full mx-auto">
+  <!-- Navbar flotante con bordes redondeados, fondo y centrado -->
+  <nav
+    class="fixed top-2 left-1/2 transform -translate-x-1/2 bg-[#171a31] text-white px-4 py-2 shadow-lg rounded-full flex justify-center space-x-4 z-8"
+  >
+    <!-- Mapeamos los elementos de navegación para mostrarlos horizontalmente -->
+
+    {
+      navItems.map((link) => (
+        <a
+          class="relative block text-sm transition hover:text-[#3879e3]"
+          aria-label={link.label}
+          href={link.url}
+        >
+          {link.title}
+        </a>
+      ))
+    }
+  </nav>
+</header>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const sections = document.querySelectorAll("section[id]"); // Solo selecciona secciones con ID
+    const navItems = document.querySelectorAll("header nav a");
+
+    const callback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navItems.forEach((item) => {
+            // Compara con el href del enlace (quitando el #)
+            if (item.getAttribute("href") === `/#${id}`) {
+              item.classList.add("text-[#3879e3]");
+            } else {
+              item.classList.remove("text-[#3879e3]");
+            }
+          });
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: "-20% 0px -20% 0px", // Ajusta el margen de intersección
+      threshold: 0.2, // Reduce el umbral para una detección más temprana
+    });
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    // Limpieza del observer cuando la página se oculta
+    document.onvisibilitychange = () => {
+      if (document.visibilityState === "hidden") {
+        observer.disconnect();
+      } else {
+        sections.forEach((section) => {
+          observer.observe(section);
+        });
+      }
+    };
+  });
+</script>
+
+<style>
+  /* Animación de sombra en el navbar */
+  @keyframes nav-shadow {
+    0% {
+      background-color: transparent;
+    }
+    100% {
+      background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+  }
+
+  nav {
+    animation: nav-shadow 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+</style>

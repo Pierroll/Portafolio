@@ -1,0 +1,15 @@
+mi-portafolio/
+├── src/
+│   ├── components/
+│   │   ├── Navbar.astro
+│   │   ├── Intro.astro
+│   │   ├── Experiencia.astro
+│   │   ├── Proyectos.astro
+│   │   └── SobreMi.astro
+│   ├── styles/
+│   │   └── global.css
+│   ├── pages/
+│   │   └── index.astro
+├── astro.config.mjs
+├── tailwind.config.js
+└── package.json

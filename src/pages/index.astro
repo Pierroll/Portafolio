@@ -1,0 +1,62 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Intro from "../components/Intro.astro";
+import Experiencia from "../components/Experiencia.astro";
+import Proyectos from "../components/Proyectos.astro";
+import SobreMi from "../components/SobreMi.astro";
+import "../styles/global.css";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Portafolio</title>
+    <link rel="icon" type="image/svg+xml" href="/codigo.svg" />
+    <style>
+      /* Estilo para Firefox */
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: #4a1470 #1b0527;
+      }
+
+      /* Barra de desplazamiento completa */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      /* Fondo de la barra de desplazamiento */
+      ::-webkit-scrollbar-track {
+        background: #1b0527; /* Tu color base */
+      }
+
+      /* El "pulgar" o parte móvil de la barra */
+      ::-webkit-scrollbar-thumb {
+        background: #4a1470; /* Una variación más clara del morado */
+        border-radius: 5px;
+      }
+
+      /* Cuando se pasa el mouse por encima del pulgar */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #5c1a8c; /* Un tono aún más claro para el hover */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="relative min-h-screen w-full bg-slate-950 overflow-x-hidden">
+      <div
+        class="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"
+      >
+      </div>
+      <div
+        class="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"
+      >
+      </div>
+      <Navbar />
+      <Intro />
+      <Experiencia />
+      <Proyectos />
+      <SobreMi />
+    </div>
+  </body>
+</html>
