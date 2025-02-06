@@ -5,4 +5,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  site: 'https://pmorris-portafolio.onrender.com',
+  integrations: [sitemap()]
 });

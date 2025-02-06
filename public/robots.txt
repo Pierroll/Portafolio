@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pmorris-portafolio.onrender.com/sitemap.xml

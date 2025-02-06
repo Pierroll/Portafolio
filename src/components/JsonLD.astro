@@ -1,0 +1,52 @@
+---
+const personData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Gean Piero",
+  url: "https://pmorris-portafolio.onrender.com",
+  image:
+    "https://res.cloudinary.com/dsa4wm92s/image/upload/v1738877227/perfil_tkeuxf.jpg",
+  jobTitle: "Desarrollador Web",
+  description:
+    "Desarrollador web especializado en crear experiencias digitales únicas",
+  email: "ppiero119@gmail.com",
+  telephone: "+51907690125",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Huánuco",
+    addressRegion: "Huánuco",
+    addressCountry: "Perú",
+  },
+  sameAs: [
+    "https://github.com/Pierroll",
+    "https://www.linkedin.com/in/geanpieropinedocalle-b1a609272",
+    "https://www.tiktok.com/@devmorris?is_from_webapp=1&sender_device=pc",
+    //"https://www.instagram.com/devmorris/",
+    //"https://www.facebook.com/profile.php?id=100088929241825",
+    //"https://www.youtube.com/@devmorris",
+  ],
+  knowsAbout: [
+    "Desarrollo Web",
+    "JavaScript",
+    "React",
+    "Astro",
+    "CSS",
+    "HTML",
+    "Python",
+    "Laravel",
+    "MySQL",
+    "Git",
+    "GitHub",
+    "GitLab",
+    "GitLab CI/CD",
+    "Docker",
+    "AWS",
+    // Agrega aquí tus habilidades principales
+  ],
+};
+---
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(personData, null, 2)}
+/>
